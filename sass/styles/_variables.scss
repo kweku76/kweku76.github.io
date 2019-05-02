@@ -1,0 +1,13 @@
+$primaryBtn: rgb(57, 168, 71);
+$textColor: rgb(179, 136, 19);
+$bgColor: rgb(179, 228, 228);
+$lgPadding: 7rem;
+$smPadding: 2rem;
+$orangeBtn: rgb(255, 155, 23);
+$smMargin: 2rem;
+$flex: flex;
+$squishLg: 100% - 50%; // very cool, you can do math - + * in SASS!
+$squishSm: 100% - 20%;
+@mixin bgGradient {
+    background-image: linear-gradient(-90deg, red, yellow);
+}

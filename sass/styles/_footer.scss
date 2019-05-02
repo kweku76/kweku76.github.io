@@ -1,0 +1,24 @@
+//not really needed. only for example to show cleaner structure for css
+footer {
+   // @extend header; this will use all the syles and properties of the header class
+    background: #1c4b81 ;
+    display: flex;
+    justify-content:center;
+    text-transform:uppercase;
+    color: #fff;
+    padding: 1rem;
+    width: $squishLg;
+button {
+background: #222;
+padding: $smPadding;
+font-weight:bold;
+margin: $smMargin;
+color: $orangeBtn;
+&:hover {
+    background: rgb(75, 238, 110);
+    color: #fff;
+    
+}
+
+}
+}

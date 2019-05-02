@@ -1,0 +1,75 @@
+footer {
+  background: #1c4b81;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 1rem;
+  width: 50%;
+}
+
+footer button {
+  background: #222;
+  padding: 2rem;
+  font-weight: bold;
+  margin: 2rem;
+  color: #ff9b17;
+}
+
+footer button:hover {
+  background: #4bee6e;
+  color: #fff;
+}
+
+header {
+  background: #b3e4e4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  color: #b38813;
+  padding: 7rem;
+}
+
+header button {
+  background: #ff9b17;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+header button:hover {
+  background: #b42a2a;
+  color: #fff;
+}
+
+.contact button {
+  background: #39a847;
+  color: #fff;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.contact button:hover {
+  background: #ddda0b;
+  color: #1a1313;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 7rem;
+  width: 80%;
+  background-image: -webkit-gradient(linear, right top, left top, from(red), to(yellow));
+  background-image: linear-gradient(-90deg, red, yellow);
+}
+/*# sourceMappingURL=styles.css.map */

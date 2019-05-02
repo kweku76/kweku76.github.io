@@ -1,0 +1,44 @@
+@import "./variables";
+@import "./footer";
+
+
+header {
+    background: $bgColor;
+    display: $flex;
+    justify-content:center;
+    text-transform:uppercase;
+    color: $textColor;
+    padding: $lgPadding;
+button {
+background: $orangeBtn;
+padding: $smPadding;
+margin: $smMargin;
+&:hover {
+    background: rgb(180, 42, 42);
+    color: #fff;
+    
+    
+}
+
+}
+}
+
+
+.contact button {
+    background: $primaryBtn;
+    color: #fff;
+    padding: $smPadding;
+    margin: $smMargin;
+    &:hover {
+        background: rgb(221, 218, 11);
+        color: rgb(26, 19, 19);
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+}
+.contact {
+    display: $flex;
+    padding: $lgPadding;
+    width: $squishSm;
+@include bgGradient (); 
+}
