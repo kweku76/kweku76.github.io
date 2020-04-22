@@ -1,0 +1,70 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #087c8a, #075d7b);
+  color: #000;
+  font-family: 'calibri', sans-serif;
+  font-weight: 400;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: #fff;
+  flex: 0 0 80%;
+
+}
+
+#quoteBtn {
+  border: none;
+  color: #fff;
+  background: #075d7b;
+  font-size: 1.3rem;
+  padding: 1rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#quote {
+  transition: all 0.3s ease;
+}
+
+#quoteBtn:hover {
+  background-color: #087c8a;
+  transition: all 0.8s ease;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #1799cc;
+  margin: 2rem;
+  padding: 1rem;
+  transition: all 1.8s ease;
+}
+
+#quoteAuthor {
+  color: #087c8a;
+  transition: all 0.8s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }

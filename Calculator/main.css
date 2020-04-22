@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #087c8a, #075d7b);
+}
+
+.calculator {
+  flex: 0 0 95%;
+}
+
+.screen {
+  width: 100%;
+  font-size: 7rem;
+  padding: 0.5rem;
+  background: #333333;
+  color: white;
+  border: none;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.5s linear;
+}
+
+button {
+  flex: 0 0 25%;
+  border: 1px solid black;
+  padding: 0.25rem 0;
+  transition: all 1s ease;
+}
+
+button:hover {
+  background: rgb(11, 77, 177);
+  color: white;
+}
+
+.btn-yellow {
+  background: orange;
+  color: white;
+}
+
+.btn-grey {
+  background: rgb(224, 224, 224);
+
+}
+
+.btn,
+.btn-equal,
+.btn-clear {
+  font-size: 4rem;
+}
+
+.btn-equal {
+  background: green;
+}
+
+.btn-clear {
+  background: red;
+}
+
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
