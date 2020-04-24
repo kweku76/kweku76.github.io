@@ -9,8 +9,8 @@
 //GAME VALUES
 let min = 1,
   max = 10,
-  winningNum = 2,
-  guessesLeft = 3;
+  winningNum = getRandomNum(min, max),
+  guessesLeft = 3; //total number of guesses
 
 //UI ELEMENTS
 const game = document.querySelector('game'),
@@ -57,7 +57,7 @@ guessBtn.addEventListener('click', function () {
       //game still continues - last answer wrong
       guessInput.style.borderColor = 'purple'; //change border colour to purple
       guessInput.value = ''; //clear input
-      setMessage(`${guess} is not correct, you have ${guessesLeft} guesses left.`, 'blue');
+      setMessage(`${guess} is not correct, you have ${guessesLeft} guesses left!`, 'purple');
     } // tell user wrong number
   }
 });
@@ -77,6 +77,11 @@ function gameOver(won, msg) {
   //play again?
   guessBtn.value = 'Play Again'; //change submit button text to 'play again'
   guessBtn.className = 'play-again'; //change class name of button
+}
+//get winning number
+function getRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min); // math.random will randomise a number between 1 and 10, math.floor will round the number off so we dont get 1.373373738... (min is 1 max is 10)
+
 }
 
 // set message
