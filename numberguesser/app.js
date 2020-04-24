@@ -20,11 +20,18 @@ const game = document.querySelector('game'),
   guessInput = document.querySelector('#guess-input'),
   message = document.querySelector('.message');
 
-
 //ASSIGN UI MIN AND MAX
-
 minNum.textContent = min;
 maxNum.textContent = max;
+
+//PLAY AGAIN EVENT LISTENER
+guessBtn.addEventListener('mousedown', function (e) {
+  if (e.target.className === 'play-again') {
+    window.location.reload();
+  }
+});
+
+
 
 //LISTEN FOR GUESS
 guessBtn.addEventListener('click', function () {
@@ -38,18 +45,39 @@ guessBtn.addEventListener('click', function () {
 
 
   //CHECK IF WINNER - conditional statement
-  if (guess === winningNum) {
-    //disable input
-    guessInput.disabled = true;
-    //change border colour to green
-    guessInput.style.borderColor = 'green';
-    //set message
-    setMessage(`${winningNum} is correct! YOU WIN`, 'green');
+  if (guess === winningNum) { // game over you won
+    gameOver(true, `${winningNum} is correct! YOU WIN!`);
 
   } else {
-
+    // WRONG NUMBER
+    guessesLeft -= 1; //same as saying guessesLeft = guessesLeft minus 1
+    if (guessesLeft === 0) { //if guessesLeft equals 0 then game over u lost
+      gameOver(false, `GAME OVER - you lost. The correct number was ${winningNum}`);
+    } else {
+      //game still continues - last answer wrong
+      guessInput.style.borderColor = 'purple'; //change border colour to purple
+      guessInput.value = ''; //clear input
+      setMessage(`${guess} is not correct, you have ${guessesLeft} guesses left.`, 'blue');
+    } // tell user wrong number
   }
 });
+
+//GAME OVER FUNCTION - for both winning and losing
+function gameOver(won, msg) {
+  let color;
+  won === true ? color = 'green' : color = 'red'; //ternery operator conditional statement - if won is true the text colour should be green, otherwise it should be red
+  //disable input
+  guessInput.disabled = true;
+  //change border colour to green
+  guessInput.style.borderColor = color;
+  message.style.color = color;
+  //set message
+  setMessage(msg);
+
+  //play again?
+  guessBtn.value = 'Play Again'; //change submit button text to 'play again'
+  guessBtn.className = 'play-again'; //change class name of button
+}
 
 // set message
 function setMessage(msg, color) {
