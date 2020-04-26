@@ -17,7 +17,7 @@ function loadData() {
   xhr.onload = function () {
     console.log('READYSTATE', xhr.readyState);
     if (this.status === 200) { // status equals everything went well -OK
-      console.log(this.responseText);
+      //console.log(this.responseText);
       document.getElementById('output').innerHTML = `<p>${this.responseText}</p>`;
     }
   }
