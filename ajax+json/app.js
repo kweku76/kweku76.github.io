@@ -5,7 +5,7 @@ function loadData() {
   const xhr = new XMLHttpRequest();
 
   // OPEN
-  xhr.open('GET', 'data.txt', true);
+  xhr.open('GET', 'data.txt', true); //specifies type of request we make
 
   // console.log('READYSTATE', xhr.readyState);
 
@@ -16,8 +16,8 @@ function loadData() {
 
   xhr.onload = function () {
     console.log('READYSTATE', xhr.readyState);
-    if (this.status === 200) {
-      // console.log(this.responseText);
+    if (this.status === 200) { // status equals everything went well -OK
+      console.log(this.responseText);
       document.getElementById('output').innerHTML = `<p>${this.responseText}</p>`;
     }
   }
@@ -33,7 +33,7 @@ function loadData() {
     console.log('Request error...');
   }
 
-  xhr.send();
+  xhr.send(); // THISis the final insruction to send or fetch data
 
 
   // readyState Values
