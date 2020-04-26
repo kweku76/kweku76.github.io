@@ -33,7 +33,7 @@ function win(userChoice, computerChoice) {
     document.getElementById(userChoice).classList.add('green-glow');
     setTimeout(function () {
         document.getElementById(userChoice).classList.remove('green-glow')
-    }, 1500);
+    }, 500);
 
 }
 
