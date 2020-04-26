@@ -47,6 +47,10 @@ function lose(userChoice, computerChoice) {
     result_p.innerHTML = `${convertToWord(userChoice)}${tinyUserWd} loses to ${convertToWord(computerChoice)}${tinyCompWd}, you lost...💩`; //using ES6 style, no quotes or pluses
     console.log('LOSE');
     fade();
+    document.getElementById(userChoice).classList.add('red-glow');
+    setTimeout(function () {
+        document.getElementById(userChoice).classList.remove('red-glow')
+    }, 500);
 }
 
 function draw(userChoice, computerChoice) {
@@ -55,6 +59,10 @@ function draw(userChoice, computerChoice) {
     result_p.innerHTML = `${convertToWord(userChoice)}${tinyUserWd} draws with ${convertToWord(computerChoice)}${tinyCompWd} 🥱`; //using ES6 style, no quotes or pluses
     console.log('DRAW');
     fade();
+    document.getElementById(userChoice).classList.add('grey-glow');
+    setTimeout(function () {
+        document.getElementById(userChoice).classList.remove('grey-glow')
+    }, 500);
 }
 
 function game(userChoice) { // this function is for our choice
