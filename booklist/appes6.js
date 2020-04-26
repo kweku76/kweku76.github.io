@@ -24,19 +24,13 @@ class UI {
   showAlert(message, className) {
 
     const div = document.createElement('div'); //create div
-
     div.className = `alert ${className}`; // Add classes
-
     div.appendChild(document.createTextNode(message)); // Add text
     //get parent
     const container = document.querySelector('.container'); //we need . before container because its a class
     //get form
-    const form = document.querySelector('#book-form');
-    //insert alert
-
-    container.insertBefore(div, form);
-
-    //Error alert Timeout after 3 seconds
+    const form = document.querySelector('#book-form'); //insert alert
+    container.insertBefore(div, form); //Error alert Timeout after 3 seconds
     setTimeout(function () {
       document.querySelector('.alert').remove();
     }, 3000);
@@ -45,7 +39,6 @@ class UI {
   deleteBook(target) {
     if (target.className === 'delete') {
       target.parentElement.parentElement.remove();
-
     }
   }
 
@@ -57,20 +50,54 @@ class UI {
 
 }
 
-//EVERYTHING BELOW IS SAME AS ES5 V
+//LOCAL STORAGE CLASS
+class Store {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
+  }
+
+  static displayBooks() {
+    const books = Store.getBooks();
+    books.forEach(function (book) {
+      const ui = new UI;
+      // Add book to UI
+      ui.addBookToList(book);
+    })
+  }
+
+  static addBook(book) {
+    const books = Store.getBooks(); //gets books from localstorage
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books)); //we use JSON to store in localStorage
+  }
+  static removeBook(isbn) {
+    const books = Store.getBooks();
+    books.forEach(function (book, index) {
+      if (book.isbn === isbn) {
+        books.splice(index, 1);
+      }
+    });
+  }
+}
+
+// DOM Load Event LS
+document.addEventListener('DOMContentLoaded', Store.displayBooks);
 // Event listener for ADD BOOK - related to the html elements such as id's
 document.getElementById('book-form').addEventListener('submit', function (e) {
   //this gets the form values for each attribute
   const title = document.getElementById('title').value,
     author = document.getElementById('author').value,
     isbn = document.getElementById('isbn').value;
-
   //instantiate a book object
   const book = new Book(title, author, isbn);
-
   //instantiate a UI object
   const ui = new UI();
-
   // Validation
   if (title === '' || author === '' || isbn === '') {
     // error alert
@@ -79,16 +106,13 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
     //Add book to list - we pass in the book object below
     ui.addBookToList(book);
 
-    // show csuccess
-    ui.showAlert('Book Added!', 'success');
-
+    // ADD TO LOCAL STORAGE
+    Store.addBook(book);
+    ui.showAlert('Book Added!', 'success'); // show success MESSAGE
     //clears fields after submit
     ui.clearFields();
-
   }
-
   e.preventDefault(); //this prevents the default behaviour when a submit button is clicked on anything with a form.
-
 });
 
 
@@ -96,12 +120,11 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 document.getElementById('book-list').addEventListener('click', function (e) {
   //instantiate a UI object
   const ui = new UI();
+  ui.deleteBook(e.target); //delete book
 
-  //delete book
-  ui.deleteBook(e.target);
-
+  //delete book from LOCAL STORAGE
+  Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
   //show 'book removed' message
   ui.showAlert('Book Removed!', 'success');
-
   e.preventDefault();
 });
