@@ -29,7 +29,7 @@ function loadData() {
   //   }
   // }
 
-  xhr.onerror = function () {
+  xhr.onerror = function () { //in case something goes wrong
     console.log('Request error...');
   }
 
