@@ -1,5 +1,5 @@
 //Cacheing the DOM - storing these elements in variables for future use
-let userScore = 0;
+let userScore = 0; // the value of these variables changes so they are Let, not const
 let computerScore = 0;
 const userScore_span = document.getElementById('user-score');
 const computerScore_span = document.getElementById('computer-score');
