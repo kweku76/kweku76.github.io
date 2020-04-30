@@ -1,7 +1,10 @@
 class Github { // creating a class constructor to get the github id and secret
   constructor() {
-    this.client_id = 'ff8fea02bdb100b4f0f8';
-    this.client_secret = '7f0e323c69d168656f6776252bbdfa6661fad9f3';
+    this.config = {
+      headers: {
+        Authorization: '6056e97697c60b80f2a45294ecd3690036f35ad0'
+      }
+    }
     this.repos_count = 5; // only show 5 repos
     this.repos_sort = 'created: asc'; // this will give us the 5 most recent repos
   }
