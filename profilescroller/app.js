@@ -22,6 +22,14 @@ const data = [ // This is the main profile data for 3 examples. An array with ha
     lookingfor: 'female',
     location: 'Lynn MA',
     image: 'https://randomuser.me/api/portraits/men/83.jpg'
+  },
+    {
+    name: 'Sandra James',
+    age: 28,
+    gender: 'female',
+    lookingfor: 'female',
+    location: 'NY NY',
+    image: 'https://randomuser.me/api/portraits/women/81.jpg'
   }
 ];
 
